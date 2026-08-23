@@ -89,7 +89,7 @@ function Detalle({ s }: { s: Solicitud }) {
 function Solicitudes() {
   const [filtro, setFiltro] = useState<(typeof estados)[number]>("Todas");
   const [busqueda, setBusqueda] = useState("");
-  const [seleccion, setSeleccion] = useState(solicitudes[0].id);
+  const [seleccion, setSeleccion] = useState(solicitudes[0]!.id);
 
   const lista = useMemo(
     () =>
@@ -103,7 +103,7 @@ function Solicitudes() {
     [filtro, busqueda],
   );
 
-  const actual = solicitudes.find((s) => s.id === seleccion) ?? solicitudes[0];
+  const actual = solicitudes.find((s) => s.id === seleccion) ?? solicitudes[0]!;
 
   return (
     <AppShell
